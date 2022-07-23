@@ -20,4 +20,4 @@ async def test_basic_mux(dut):
         
     # cocotb.log.info('##### CTB: Develop your test here ########')
     
-    assert dut.out.value == Inp30, f"Muliplexer has selected wrong input: {dut.sel.value} != 30"
+    assert dut.out.value == Inp30, f"Muliplexer has selected wrong input: {dut.X.value} != 30"
