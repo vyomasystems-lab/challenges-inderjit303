@@ -36,7 +36,7 @@ async def test1_basic_mux(dut):
     dut.sel.value = SEL
     dut.inp1.value = Inp1
      
-    await Timer(4, units='ns')
+    await Timer(2, units='ns')
         
     # cocotb.log.info('##### CTB: Develop your test here ########')
     
@@ -56,8 +56,59 @@ async def test2_basic_mux(dut):
     dut.sel.value = SEL
     dut.inp2.value = Inp2
      
-    await Timer(6, units='ns')
+    await Timer(2, units='ns')
         
     assert dut.out.value == Inp2, f"Muliplexer has selected wrong input: {dut.sel.value} != 2"
 
     cocotb.log.info('##### CTB: Test 2 #####')
+
+@cocotb.test()
+async def test3_basic_mux(dut):
+    """Test 3 for mux"""
+
+    Inp3 = 1
+    SEL = 3
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp3.value = Inp3
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp3, f"Muliplexer has selected wrong input: {dut.sel.value} != 3"
+
+    cocotb.log.info('##### CTB: Test 3 #####')
+
+@cocotb.test()
+async def test4_basic_mux(dut):
+    """Test 4 for mux"""
+
+    Inp4 = 1
+    SEL = 4
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp4.value = Inp4
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp4, f"Muliplexer has selected wrong input: {dut.sel.value} != 4"
+
+    cocotb.log.info('##### CTB: Test 4 #####')
+
+@cocotb.test()
+async def test5_basic_mux(dut):
+    """Test 5 for mux"""
+
+    Inp5 = 1
+    SEL = 2
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp5.value = Inp5
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp5, f"Muliplexer has selected wrong input: {dut.sel.value} != 5"
+
+    cocotb.log.info('##### CTB: Test 5 #####')
