@@ -35,7 +35,6 @@ async def test1_basic_mux(dut):
     # input driving 
     dut.sel.value = SEL
     dut.inp1.value = Inp1
-    #dut.inp13.value = Inp13
      
     await Timer(4, units='ns')
         
@@ -56,7 +55,6 @@ async def test2_basic_mux(dut):
     # input driving 
     dut.sel.value = SEL
     dut.inp2.value = Inp2
-    #dut.inp13.value = Inp13
      
     await Timer(6, units='ns')
         
