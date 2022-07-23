@@ -2,10 +2,11 @@
 
 import cocotb
 from cocotb.triggers import Timer
+import random
 
 @cocotb.test()
-async def test_mux(dut):
-    """Test for mux2"""
+async def test_basic_mux(dut):
+    """Test for mux"""
 
     Inp30 = 1
     SEL = 30
