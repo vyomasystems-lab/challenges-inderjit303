@@ -17,23 +17,17 @@ async def test_basic_CLA32(dut):
     dut.b.value = b
     dut.cin.value = cin
     
-    if dut.sum.value != sum:
-        x = 'SUM ERROR!\n'
-        x += 'added 0x{:x} and 0x{:x}, result is: 0x{:x}\n'.format(a, b, sum)
-        x += 'rtl resulted in s: 0x{:x}'.format(int(dut.sum))
-        raise TestFailure(x)
-    elif dut.cout.value != cout:
-        x = 'CARRY ERROR!\n'
-        x += 'added 0x{:x} and 0x{:x}, result is: 0x{:x}\n'.format(a, b, sum)
-        x += 'carry flag should be : 0b{:b}\n'.format(cout)
-        x += 'rtl resulted in c: 0b{:b}'.format(int(dut.cout))
-        raise TestFailure(x)
-    else:
-        dut._log.info("Test passed!")
+    cocotb.log.info('a|b||cout|sum')
+
+
+    await Timer(2, units='ns')
+
+    assert dut.sum.value == a+b, f"Sum result is incorrect: {dut.sum.value} != 99998"
+    dut._log.info("Test passed!")
 
     
     #assert dut.out.value == Inp0, f"Muliplexer has selected wrong input: {dut.sel.value} != 0"
 
-    cocotb.log.info('a|b||cout|sum')
+    
 
 
