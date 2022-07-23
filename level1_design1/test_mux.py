@@ -21,3 +21,22 @@ async def test0_basic_mux(dut):
     # cocotb.log.info('##### CTB: Develop your test here ########')
     
     assert dut.out.value == Inp0, f"Muliplexer has selected wrong input: {dut.sel.value} != 0"
+
+@cocotb.test()
+async def test1_basic_mux(dut):
+    """Test 1 for mux"""
+
+    Inp1 = 1
+    SEL = 0
+    
+    # input driving 
+    #dut.sel.value = SEL
+    dut.inp1.value = Inp1
+    #dut.inp13.value = Inp13
+     
+    await Timer(4, units='ns')
+        
+    # cocotb.log.info('##### CTB: Develop your test here ########')
+    
+    assert dut.out.value == Inp1, f"Muliplexer has selected wrong input: {dut.sel.value} != 1"
+
