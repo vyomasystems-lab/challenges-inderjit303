@@ -308,3 +308,182 @@ async def test16_basic_mux(dut):
     assert dut.out.value == Inp16, f"Muliplexer output is incorrect: {dut.sel.value} != 16"
 
     cocotb.log.info('##### CTB: Test 16 #####')
+
+
+@cocotb.test()
+async def test17_basic_mux(dut):
+    """Test 17 for mux"""
+
+    Inp17 = 1
+    SEL = 17
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp17.value = Inp17
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp17, f"Muliplexer output is incorrect: {dut.sel.value} != 17"
+
+    cocotb.log.info('##### CTB: Test 17 #####')
+
+@cocotb.test()
+async def test18_basic_mux(dut):
+    """Test 18 for mux"""
+
+    Inp18 = 1
+    SEL = 18
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp18.value = Inp18
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp18, f"Muliplexer output is incorrect: {dut.sel.value} != 18"
+
+    cocotb.log.info('##### CTB: Test 18 #####')
+
+
+@cocotb.test()
+async def test19_basic_mux(dut):
+    """Test 19 for mux"""
+
+    Inp19 = 1
+    SEL = 19
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp19.value = Inp19
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp19, f"Muliplexer output is incorrect: {dut.sel.value} != 19"
+
+    cocotb.log.info('##### CTB: Test 19 #####')
+
+
+@cocotb.test()
+async def test20_basic_mux(dut):
+    """Test 20 for mux"""
+
+    Inp20 = 1
+    SEL = 20
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp20.value = Inp20
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp20, f"Muliplexer output is incorrect: {dut.sel.value} != 20"
+
+    cocotb.log.info('##### CTB: Test 20 #####')
+
+@cocotb.test()
+async def test21_basic_mux(dut):
+    """Test 21 for mux"""
+
+    Inp21 = 1
+    SEL = 21
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp21.value = Inp21
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp21, f"Muliplexer output is incorrect: {dut.sel.value} != 21"
+
+    cocotb.log.info('##### CTB: Test 21 #####')
+
+
+@cocotb.test()
+async def test22_basic_mux(dut):
+    """Test 22 for mux"""
+
+    Inp22 = 1
+    SEL = 22
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp22.value = Inp22
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp22, f"Muliplexer output is incorrect: {dut.sel.value} != 22"
+
+    cocotb.log.info('##### CTB: Test 22 #####')
+
+
+
+@cocotb.test()
+async def test23_basic_mux(dut):
+    """Test 23 for mux"""
+
+    Inp23 = 1
+    SEL = 23
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp23.value = Inp23
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp23, f"Muliplexer output is incorrect: {dut.sel.value} != 23"
+
+    cocotb.log.info('##### CTB: Test 23 #####')
+
+
+@cocotb.test()
+async def test24_basic_mux(dut):
+    """Test 24 for mux"""
+
+    Inp24 = 1
+    SEL = 24
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp24.value = Inp24
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp24, f"Muliplexer output is incorrect: {dut.sel.value} != 24"
+
+    cocotb.log.info('##### CTB: Test 24 #####')
+
+
+@cocotb.test()
+async def test25_basic_mux(dut):
+    """Test 25 for mux"""
+
+    Inp25 = 1
+    SEL = 25
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp25.value = Inp25
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp25, f"Muliplexer output is incorrect: {dut.sel.value} != 25"
+
+    cocotb.log.info('##### CTB: Test 25 #####')
+
+
+@cocotb.test()
+async def test26_basic_mux(dut):
+    """Test 26 for mux"""
+
+    Inp26 = 1
+    SEL = 26
+    
+    # input driving 
+    dut.sel.value = SEL
+    dut.inp26.value = Inp26
+     
+    await Timer(2, units='ns')
+        
+    assert dut.out.value == Inp26, f"Muliplexer output is incorrect: {dut.sel.value} != 26"
+
+    cocotb.log.info('##### CTB: Test 26 #####')
