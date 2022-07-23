@@ -13,16 +13,16 @@ async def test_basic_CLA32(dut):
     a = 0x000003E7
     b = 0x000182b7
     cin = 0
-    dut.a = a
-    dut.b = b
-    dut.cin = cin
+    dut.a.value = a
+    dut.b.value = b
+    dut.cin.value = cin
     
-    if dut.sum != sum:
+    if dut.sum.value != sum:
         x = 'SUM ERROR!\n'
         x += 'added 0x{:x} and 0x{:x}, result is: 0x{:x}\n'.format(a, b, sum)
         x += 'rtl resulted in s: 0x{:x}'.format(int(dut.sum))
         raise TestFailure(x)
-    elif dut.cout != cout:
+    elif dut.cout.value != cout:
         x = 'CARRY ERROR!\n'
         x += 'added 0x{:x} and 0x{:x}, result is: 0x{:x}\n'.format(a, b, sum)
         x += 'carry flag should be : 0b{:b}\n'.format(cout)
