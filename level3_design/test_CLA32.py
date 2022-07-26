@@ -7,7 +7,7 @@ import random
 
 
 @cocotb.test()
-async def test_basic_CLA32(dut):
+async def test_CLA_Basic(dut):
     """Test for 32 bit CLA adder which calculates a ='bd999; b='d98999"""
 
     # input driving 
@@ -15,24 +15,34 @@ async def test_basic_CLA32(dut):
     B = 98999
     Cin = 0
     dut.a.value = A
-    dut.b.value = B
-    dut.cin.value = Cin
+    * dut.b.value = B
+    *dut.cin.value = Cin
     
     cocotb.log.info('A|B||cout|sum')
 
-
     await Timer(2, units='ns')
+    
+    assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
+            A=int(dut.a.value), B=int(dut.b.value), SUM=int(dut.sum.value), EXP=A+B)
 
-    # run model and get the results
-    sum, cout = test_basic_CLA32(dut.sum.value)
+@cocotb.test()
+async def test_CLA32_randomise(dut):
+    """Test for adding two random numbers multiple times"""
 
-    if dut.sum.value != sum:
-         x = "incorrect result for sum: {} != {}".format(dut.sum.value, int(sum))
-         raise TestFailure(x)
-    elif dut.cout.value != cout:
-        x = "incorrect result for carry: {} != {}".format(dut.cout.value, int(cout))
-        raise TestFailure(x)
-    else:
+    for i in range(10):
+
+        A = random.randint(0, 4294967295)
+        B = random.randint(0, 4294967295)
+
+        dut.a.value = A
+        dut.b.value = B
+
+        await Timer(2, units='ns')
+        
+        dut._log.info(f'A={A:10} B={B:05} model={A+B:05} DUT={int(dut.sum.value):05}')
+        assert dut.sum.value == A+B, "Randomised test failed with: {A} + {B} = {SUM}".format(
+            A=dut.a.value, B=dut.b.value, SUM=dut.sum.value)
+        
         dut._log.info("Test is passed!")
     
 
