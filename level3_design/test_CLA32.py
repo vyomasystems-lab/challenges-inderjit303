@@ -20,8 +20,9 @@ async def test_CLA32_Basic(dut):
 
     await Timer(2, units='ns')
     
-    assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
-            A=int(dut.a.value), B=int(dut.b.value), SUM=int(dut.sum.value), EXP=A+B)
+    assert dut.sum.value == A + B, "Adder result is incorrect: {A} + {B} != {SUM}".format(
+            A=int(dut.a.value), B=int(dut.b.value), SUM=int(dut.sum.value))
+
 
 @cocotb.test()
 async def test_CLA32_randomise(dut):

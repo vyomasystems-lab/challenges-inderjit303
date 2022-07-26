@@ -3,7 +3,7 @@ module PGGen(output g, p, input a, b);
  
   and #(1) (g, a, b);
   xor #(2) (p, a, b);
- 
+  
 endmodule
 
 module CLA32(output [31:0] sum, output cout, input [31:0] a, b);
