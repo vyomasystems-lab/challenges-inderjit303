@@ -31,8 +31,8 @@ async def test_CLA32_randomise(dut):
         A = random.randint(0, 4294967295)
         B = random.randint(0, 4294967295)
         
-        A = 1100100011001010
-        B = 1100100011001010
+        A = 0b1100100011001010
+        B = 0b1100100011001010
         dut.a.value = A
         dut.b.value = B
 
