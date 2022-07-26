@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 23 16:44:52 2022
+# Make data base, printed on Tue Jul 26 07:31:15 2022
 
 # Variables
 
@@ -103,7 +101,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 PYENV_ROOT = /home/gitpod/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-9ba29650-2447-491f-884a-f1e97e991077.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-c5abfd26-4189-4935-96b2-52cf52f7c5c6.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -145,7 +143,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
-GITPOD_CLI_APITOKEN = 7kF17GIvv4cb6j_aceUiB1yYcL1W0vn9
+GITPOD_CLI_APITOKEN = lz3SEr_yDc242JZfi5aoBRXbr1oWsFCp
 # automatic
 +F = $(notdir $+)
 # environment
@@ -277,7 +275,7 @@ NGINX_DOCROOT_IN_REPO = public
 # environment
 rvm_loaded_flag = 1
 # environment
-GITPOD_INSTANCE_ID = 13951b1c-b1c7-468a-af0d-6e93b54ada03
+GITPOD_INSTANCE_ID = 9976d906-868a-4cb7-aecf-359dfa6c8293
 # environment
 GITPOD_WORKSPACE_URL = https://vyomasystem-challengesi-3t69t05bmrz.ws-us54.gitpod.io
 # default
@@ -295,9 +293,8 @@ MY_RUBY_HOME = /home/gitpod/.rvm/rubies/ruby-2.7.6
 
 # Directories
 
-# . (device 2346, inode 3758703729): 14 files, no impossibilities.
+# . (device 2346, inode 403359394): 14 files, no impossibilities.
 
- 
 # 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
@@ -354,6 +351,8 @@ GNUmakefile:
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Sat Jul 23 16:44:52 2022
+# Finished Make data base on Tue Jul 26 07:31:15 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+

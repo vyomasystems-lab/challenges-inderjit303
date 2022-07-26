@@ -2,6 +2,7 @@
 import cocotb
 from cocotb.triggers import Timer
 from cocotb.result import TestFailure
+from cocotb.result import ReturnValue
 import random
 
 
@@ -21,8 +22,9 @@ async def test_basic_CLA32(dut):
 
 
     await Timer(2, units='ns')
-     # run model and get the results
-    sum, cout = test_basic_CLA32(A, B, Cin)
+
+    # run model and get the results
+    sum, cout = test_basic_CLA32(dut.sum.value)
 
     if dut.sum.value != sum:
          x = "incorrect result for sum: {} != {}".format(dut.sum.value, int(sum))
