@@ -8,9 +8,8 @@ async def test_CLA32_Basic(dut):
     """Test for 32 bit CLA adder which calculates a ='bd999; b='d98999"""
 
     # input driving 
-    A = 4294967295
-    B = 4294967295
-    # Cin = 0
+    A = 429
+    B = 429
     dut.a.value = A
     dut.b.value = B
 
@@ -19,7 +18,7 @@ async def test_CLA32_Basic(dut):
     await Timer(2, units='ns')
     
     assert dut.sum.value == A + B, "Adder result is incorrect: {A} + {B} != {SUM}".format(
-            A=int(dut.a.value) , B=int(dut.b.value), SUM=int(dut.sum.value))
+    A=int(dut.a.value) , B=int(dut.b.value), SUM=int(dut.sum.value))
 
 
 @cocotb.test()
@@ -39,8 +38,8 @@ async def test_CLA32_randomise(dut):
         await Timer(2, units='ns')
         
         dut._log.info(f'A={A:05} B={B:05} model={A+B:05} DUT={int(dut.sum.value):05}')
-        assert dut.sum.value == A + B  , "Randomised test failed with: {A} + {B} != {SUM}".format(
-            A=dut.a.value, B=dut.b.value, SUM=dut.sum.value)
+        assert dut.sum.value == A + B , "Randomised test failed with: {A} + {B} != {SUM}".format(
+        A=dut.a.value, B=dut.b.value, SUM=dut.sum.value)
         
     
 
