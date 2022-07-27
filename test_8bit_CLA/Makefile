@@ -4,7 +4,7 @@ TOPLEVEL_LANG ?= verilog
 
 PWD=$(shell pwd)
 
-VERILOG_SOURCES = $(PWD)/mux.v
+VERILOG_SOURCES = $(PWD)/adder.v
 
 TOPLEVEL := adder         # design
 MODULE   := test_adder     # test
