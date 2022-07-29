@@ -23,23 +23,51 @@ async def test_seq_bug1(dut):
     dut.reset.value = 0
     await FallingEdge(dut.clk)
 
-    cocotb.log.info('#### CTB: Sequence detectir Testbench! ######')
+    cocotb.log.info('#### CTB: Sequence detector Testbench! ######')
 
     # intitalize input
     dut.inp_bit.value = 1
     await FallingEdge(dut.clk)
-    dut._log.info(f"input_bit={dut.inp_bit.value}")
-    dut._log.info(f"current_state={dut.current_state.value}")
-    dut._log.info(f"next_state={dut.next_state.value}")
-    assert dut.current_state.value == dut.SEQ_1.value,f"Output is incorrect {dut.current_state}!={dut.SEQ_1.value}"
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+
+    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = 11011. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
+
+@cocotb.test()
+async def test_seq_bug2(dut):
+    """Test for seq detection """
+    clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
+    cocotb.start_soon(clock.start())        # Start the clock
+
+    dut._log.info(f'Input bit: {dut.inp_bit.value}')
     
-    
+    # reset
+    dut.reset.value = 1
+    await FallingEdge(dut.clk)
+    dut.reset.value = 0
+    await FallingEdge(dut.clk)
+
+    cocotb.log.info('#### CTB: Develop your test here! ######')
 
     dut.inp_bit.value = 1
     await FallingEdge(dut.clk)
-    dut._log.info(f"input_bit={dut.inp_bit.value}")
-    dut._log.info(f"current_state={dut.current_state.value}")
-    dut._log.info(f"next_state={dut.next_state.value}")
-    assert dut.current_state.value == dut.SEQ_1.value,f"Output is incorrect {dut.current_state}!={dut.SEQ_1.value}"
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+
+    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = 101011. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
 
     
