@@ -7,8 +7,8 @@ import random
 async def adder_basic_test(dut):
     """Test for 3 + 12"""
 
-    A = 180
-    B = 20
+    A = 3
+    B = 12
 
     # input driving
     dut.a.value = A
@@ -16,5 +16,4 @@ async def adder_basic_test(dut):
    
     await Timer(2, units='ns')
 
-    assert dut.sum.value == A+B, f"Adder result is incorrect: {dut.sum.value} != 255"
-
+    assert (dut.sum.value) == A+B, f"Adder result is incorrect: {dut.sum.value} != 15"
