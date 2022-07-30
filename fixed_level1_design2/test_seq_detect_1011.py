@@ -1,73 +1,86 @@
-// See LICENSE.vyoma for more details
-// Verilog module for Sequence detection: 1011
-module seq_detect_1011(seq_seen, inp_bit, reset, clk);
+# See LICENSE.vyoma for details
 
-  output seq_seen;
-  input inp_bit;
-  input reset;
-  input clk;
+# SPDX-License-Identifier: CC0-1.0
 
-  parameter IDLE = 0,
-            SEQ_1 = 1, 
-            SEQ_10 = 2,
-            SEQ_101 = 3,
-            SEQ_1011 = 4;
+import os
+import random
+from pathlib import Path
 
-  reg [2:0] current_state, next_state;
+import cocotb
+from cocotb.clock import Clock
+from cocotb.triggers import RisingEdge, FallingEdge
 
-  // if the current state of the FSM has the sequence 1011, then the output is
-  // high
-  assign seq_seen = current_state == SEQ_1011 ? 1 : 0;
+@cocotb.test()
+async def test_seq_bug1(dut):
+    """Test 1 for 1011 sequence detection """
 
-  // state transition
-  always @(posedge clk)
-  begin
-    if(reset)
-    begin
-      current_state <= IDLE;
-    end
-    else
-    begin
-      current_state <= next_state;
-    end
-  end
+    clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
+    cocotb.start_soon(clock.start())        # Start the clock
 
-  // state transition based on the input and current state
-  always @(inp_bit or current_state)
-  begin
-    case(current_state)
-      IDLE:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1;
-        else
-          next_state = IDLE;
-      end
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = IDLE;
-        else
-          next_state = SEQ_10;
-      end
-      SEQ_10:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_101;
-        else
-          next_state = IDLE;
-      end
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = IDLE;
-      end
-      SEQ_1011:
-      begin
-        next_state = IDLE;
-      end
-    endcase
-  end
-endmodule
+    # reset
+    dut.reset.value = 1
+    await FallingEdge(dut.clk)  
+    dut.reset.value = 0
+    await FallingEdge(dut.clk)
+
+    cocotb.log.info('#### CTB: Sequence detector Testbench! ######')
+
+    # intitalize input
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    
+    dut._log.info(f'Input bit: {dut.inp_bit.value}')
+    dut._log.info(f'Output sequence: {dut.seq_seen.value}')
+
+    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = 110111. Model Output: {dut.seq_seen.value} Expected Output: 1'
+    dut._log.info(f'Input bit: {dut.inp_bit.value}')
+    dut._log.info(f'Output sequence: {dut.seq_seen.value}')
+
+
+@cocotb.test()
+async def test_seq_bug2(dut):
+    """Test 2 for 1011 sequence detection"""
+    clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
+    cocotb.start_soon(clock.start())        # Start the clock
+
+    
+    # reset
+    dut.reset.value = 1
+    await FallingEdge(dut.clk)
+    dut.reset.value = 0
+    await FallingEdge(dut.clk)
+
+    cocotb.log.info('#### CTB: Develop your test here! ######')
+
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+
+    dut._log.info(f'Input bit: {dut.inp_bit.value}')
+    dut._log.info(f'Output sequence: {dut.seq_seen.value}')
+    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = 1010111. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
+    
+    
+
+    
