@@ -22,8 +22,7 @@ module seq_detect_1011(seq_seen, inp_bit, reset, clk);
   // state transition
   always @(posedge clk)
   begin
-    if(!reset) 
-      // This statement creates a bug
+    if(reset)
     begin
       current_state <= IDLE;
     end
