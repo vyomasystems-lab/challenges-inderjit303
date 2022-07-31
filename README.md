@@ -12,7 +12,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 ## Verification Environment (Level 1 Design 1)
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 5-bit select input *sel*, 2-bits inputs *inp0* to *inp30* and it gives 1-bit output *out*.
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 5-bit select input *sel*, 1-bit inputs *inp0* to *inp30* and it gives 1-bit output *out*.
 
 A cocotb Testbench is created for each individual inputs *inpo* to *inp30*. 
 In each cocotb test, the inputs are first assigned values and then are driven as follows:
@@ -136,7 +136,6 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 *Gitpod id is included in the screenshot shown below*
 
 ![l1d2_image1](https://user-images.githubusercontent.com/99788755/182026222-2b934776-da3e-4fab-a0e0-0ae27012771a.png)
-
 
 
 ## Verification Environment (Level 1 Design 2)
