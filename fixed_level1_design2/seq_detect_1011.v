@@ -23,7 +23,6 @@ module seq_detect_1011(seq_seen, inp_bit, reset, clk);
   always @(posedge clk)
   begin
     if(reset)  
-     // this statement causes bug in the code
     begin
       current_state <= IDLE;
     end
