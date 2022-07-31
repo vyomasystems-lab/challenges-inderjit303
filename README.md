@@ -88,8 +88,17 @@ Based on the above test input and analysing the design, two bugs in the code wer
 
 For the mux design, the logic should be '5'b01100: out = inp12' instead of '5'b01101: out = inp12' as in the design code.
 
+```
+5'b11100: out = inp28;
+5'b11101: out = inp29;
+default: out = 0;          ====> BUG 2
+```
+
+For the mux design, the logic should be '5'b11110: out = inp30' instead of 'default: out = 0' as in the design code.
+
+
 ## Design Fix
-Updating the design and re-running the test makes the test pass.
+Updating the verilog design code and re-running the test makes the test pass.
 
 ![](https://i.imgur.com/5XbL1ZH.png)
 
