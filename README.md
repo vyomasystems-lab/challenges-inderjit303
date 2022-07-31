@@ -146,6 +146,9 @@ The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explaine
 A cocotb Testbench is created for each individual inputs *inpo* to inp30*. 
 In each cocotb test, the inputs are first assigned values and then are driven as follows:
 
+![l1d2_image3](https://user-images.githubusercontent.com/99788755/182026472-14d29353-abd1-407a-bf04-392bdb521470.png)
+
+
 ```
  Inp0 = 1
  SEL = 0
@@ -161,9 +164,9 @@ Cocotb tests are created for random states of input and monitoring output.
 ![l1d2_image2](https://user-images.githubusercontent.com/99788755/182026315-cc3e90d8-3b41-4d84-a3c9-d01812fd9aaa.png)
 
 
-The assert statement is used for comparing the multiplexer's output to the expected value and the cocotb log command display's the user typed message as shown below: 
+The assert statement is used for comparing the multiplexer's output to the expected value and the cocotb log command display's the user typed message as shown below:
 
-![l1d1_image3](https://user-images.githubusercontent.com/99788755/182016740-c253fc77-eacc-4a3e-9b22-b8d92ad93266.png)
+![l1d2_image4](https://user-images.githubusercontent.com/99788755/182026399-0140428f-a820-4503-8587-a7aa8324d9f4.png)
 
 
 The following error's are observed:
