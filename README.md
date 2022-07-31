@@ -28,10 +28,12 @@ In each cocotb test, the inputs are first assigned values and then are driven as
  dut.inp0.value = Inp0
 ```
 
-
 ![l1d1_image2](https://user-images.githubusercontent.com/99788755/182016224-2026ce7f-2b9e-481f-89b3-f7a1867a0fb3.png)
 
-The assert statement is used for comparing the adder's outut to the expected value.
+The assert statement is used for comparing the multiplexer's output to the expected value
+
+![l1d1_image3](https://user-images.githubusercontent.com/99788755/182016740-c253fc77-eacc-4a3e-9b22-b8d92ad93266.png)
+
 
 The following error is seen:
 ```
