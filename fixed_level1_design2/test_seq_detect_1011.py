@@ -11,7 +11,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge
 
 @cocotb.test()
-async def test_seq_bug1(dut):
+async def test_seq_bug(dut):
     """Test 1 for 1011 sequence detection """
 
     clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
@@ -26,12 +26,6 @@ async def test_seq_bug1(dut):
     cocotb.log.info('#### CTB: Sequence detector Testbench! ######')
 
     # intitalize input
-    dut.inp_bit.value = 1
-    await FallingEdge(dut.clk)
-    dut._log.info(f'Input bit: {dut.inp_bit.value}')
-    dut._log.info(f'Current state: {dut.current_state.value}')
-    dut._log.info(f'Next state: {dut.next_state.value}')
-    assert dut.current_state.value == dut.SEQ_1.value, f"Sequence must be detected but is not detected {dut.current_state.value}!= {dut.SEQ_1.value}"
 
     dut.inp_bit.value = 1
     await FallingEdge(dut.clk)
@@ -39,8 +33,14 @@ async def test_seq_bug1(dut):
     dut._log.info(f'Current state: {dut.current_state.value}')
     dut._log.info(f'Next state: {dut.next_state.value}')
     assert dut.current_state.value == dut.SEQ_1.value, f"Sequence must be detected but is not detected {dut.current_state.value}!= {dut.SEQ_1.value}"
-
     
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut._log.info(f'Input bit: {dut.inp_bit.value}')
+    dut._log.info(f'Current state: {dut.current_state.value}')
+    dut._log.info(f'Next state: {dut.next_state.value}')
+    assert dut.current_state.value == dut.SEQ_1.value, f"Sequence must be detected but is not detected {dut.current_state.value}!= {dut.SEQ_1.value}"
+
     dut.inp_bit.value = 1
     await FallingEdge(dut.clk)
     dut._log.info(f'Input bit: {dut.inp_bit.value}')
