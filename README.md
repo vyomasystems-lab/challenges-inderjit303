@@ -48,8 +48,8 @@ assert dut.out.value == Inp12, f"Muliplexer output is incorrect: {dut.sel.value}
 AssertionError: Muliplexer output is incorrect: 01100 != 12
 ```
 
-```
 **Error 2**
+```
 test30_basic_mux failed
 Traceback (most recent call last):
 File "/workspace/challenges-inderjit303/level1_design1/test_mux.py", line 560, in test30_basic_mux
