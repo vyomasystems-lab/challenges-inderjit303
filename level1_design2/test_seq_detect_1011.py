@@ -52,13 +52,7 @@ async def test_seq_bug(dut):
     dut._log.info(f'Input bit: {dut.inp_bit.value}')
     dut._log.info(f'Current state: {dut.current_state.value}')
     dut._log.info(f'Next state: {dut.next_state.value}')
-
-    dut.inp_bit.value = 1
-    await FallingEdge(dut.clk)
-    dut._log.info(f'Input bit: {dut.inp_bit.value}')
-    dut._log.info(f'Current state: {dut.current_state.value}')
-    dut._log.info(f'Next state: {dut.next_state.value}')
-    dut._log.info(f'Output sequence seen: {dut.seq_seen.value}')
+    dut._log.info(f'Output sequence 1011 detected: {dut.seq_seen.value}')
     assert dut.current_state.value == dut.SEQ_1011.value, f"Sequence must be detected but is not detected {dut.current_state.value}!= {dut.SEQ_1011.value}"
 
     
