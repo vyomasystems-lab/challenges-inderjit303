@@ -63,7 +63,15 @@ AssertionError: Muliplexer output is incorrect: 11110 != 30
 - Expected Output: sum=12
 - Observed Output in the DUT dut.sum=2
 
-Output mismatches for the above inputs proving that there is a design bug
+
+
+
+Output mismatches for the above inputs proving that there is a **design bug in Level 1 Design 1**
+
+![l1d1_image4](https://user-images.githubusercontent.com/99788755/182018143-9dd1cbe3-3dd1-4b98-9517-734b1242c366.png)
+
+
+
 
 ## Design Bug
 Based on the above test input and analysing the design, we see the following
