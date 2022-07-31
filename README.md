@@ -12,9 +12,9 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 ## Verification Environment (Level 1 Design 1)
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 5-bit select input *sel*, 2-bits inputs *inp0* to *inp30* and it gives 1-bit output *out*.
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 5-bit select input *sel*, 1-bit inputs *inp0* to *inp30* and it gives 1-bit output *out*.
 
-A cocotb Testbench is created for each individual inputs *inpo* to inp30*. 
+A cocotb Testbench is created for each individual inputs *inpo* to *inp30*. 
 In each cocotb test, the inputs are first assigned values and then are driven as follows:
 
 ```
@@ -105,7 +105,7 @@ Updating the verilog design code and re-running the test makes the test pass.
 The updated design is updated in the folder 'fixed_level1_design1'
 
 ## Verification Strategy (Level 1 Design 1)
-As explained in test scenarios above, bug free verilog code is updated in folder named 'fixed_level1_design1'
+As explained in test scenarios above, bug free verilog code is updated in folder named **fixed_level1_design1**.
 The following bugs were detected and corrected.
 
 Case 1: 
@@ -122,7 +122,117 @@ Output matches for the above inputs proving that **Level 1 Design 1 is bug free*
 
 ![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
 
-## Is the verification complete ?   (Level 1 Design 1)
-Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
-The bugs were located in code and eliminated.
-Hence, the verification of Mux Level 1 Design 1 completed by Pass DUT test. 
+## Is the verification complete for Level 1 Design 1 ?   
+The bugs present in original verilog code were detected using cocotb testbench verification on level1_design1 MUX code. 
+The bugs were located in code and updated bug-free. The same Cocotb test which detected the bugs, now with modified changes in the code, passes without committing any errors.
+Hence, the verification of Mux Level 1 Design 1 is complete. 
+
+# 
+
+# Level 1 Design 2 (Sequence Detector Verification)
+
+The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
+
+*Gitpod id is included in the screenshot shown below*
+
+![l1d2_image1](https://user-images.githubusercontent.com/99788755/182026222-2b934776-da3e-4fab-a0e0-0ae27012771a.png)
+
+
+## Verification Environment (Level 1 Design 2)
+
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives input sequence of bits to the Design Under Test (seq_detect_1011 module here) which takes in 1-bit input *clk*, *reset*, *inp_bit* and it gives 1-bit output *seq_seen*.
+
+A cocotb Testbench is created to detect the input sequence pattern 1011. Sequence detector accepts input *inp_bit* a string a bits either 0 or 1. The output *seq_seen* goes high when the target sequence *1011* has been detected with overlap sequence. 
+
+In cocotb testbench, the inputs are first assigned values and then are driven as follows:
+
+![l1d2_image3](https://user-images.githubusercontent.com/99788755/182026472-14d29353-abd1-407a-bf04-392bdb521470.png)
+
+Next, a 10us period clock is created on port clk and clock is started with reset. Cocotb tests are created for the input sequence *1101111*
+
+![l1d2_image2](https://user-images.githubusercontent.com/99788755/182026315-cc3e90d8-3b41-4d84-a3c9-d01812fd9aaa.png)
+
+
+The assert statement is used for comparing the current state value to the expected sequence 1011 and the cocotb log command display's the user typed message as shown below:
+
+![l1d2_image4](https://user-images.githubusercontent.com/99788755/182026399-0140428f-a820-4503-8587-a7aa8324d9f4.png)
+
+
+The following error's are observed:
+
+**Error message**
+```
+test_seq_bug failed
+Traceback (most recent call last):
+File "/workspace/challenges-inderjit303/level1_design2/test_seq_detect_1011.py", line 78, in test_seq_bug
+assert dut.current_state.value == dut.SEQ_1011.value, f"Sequence must be detected but is not detected {dut.current_state.value}!= {dut.SEQ_1011.value}"
+AssertionError: Sequence must be detected but is not detected 000!= 4
+```
+
+## Test Scenario **(Level 1 Design 2)**
+Cocotb tests are created for testing all states of input and monitoring outputs purposes. This makes sure that the input sequence are compared with expected output and DUT output.
+
+![l1d2_image6](https://user-images.githubusercontent.com/99788755/182026718-6ac98353-878a-428b-8665-33856b524d75.png)
+
+
+The following cases reveals incorrect outputs for following input sequence cases: 
+
+- Test input sequence: *1101111*
+- Expected Output: seq_seen = 1 or dut.SEQ_1011.value = 4
+- Observed Output in the DUT i.e Sequence must be detected but is not detected if dut.current_state.value != dut.SEQ_1011.value 
+
+Output mismatches for the above inputs proving that there is a **design bug in Level 1 Design 2**
+
+![l1d2_image5](https://user-images.githubusercontent.com/99788755/182026652-191b1c45-40bd-4cbc-8d2e-4272d4ee6758.png)
+
+
+## Design Bug (Level 1 Design 2)
+Based on the above test input and analysing the design, the following bugs in the code are detected as discussed below: 
+
+```
+SEQ_1:
+   begin
+      if(inp_bit == 1)
+        next_state = IDLE;   ====> BUG 1
+      else
+        next_state = SEQ_10;   ====> BUG 2
+    end
+```
+
+For the sequence detector design, IDLE and SEQ_10 should be interchanged in the design code. 
+
+
+## Design Fix (Level 1 Design 2)
+Updating the verilog design code and re-running the test makes the test pass.
+
+![l1d2_image7](https://user-images.githubusercontent.com/99788755/182026727-cd48515e-366c-4ccc-b2cb-34490df96dd9.png)
+
+
+The updated design is updated in the folder 'fixed_level1_design2'
+
+## Verification Strategy (Level 1 Design 2)
+As explained in test scenarios above, bug free verilog code is updated in folder named **fixed_level1_design2**.
+The following bugs were detected and corrected.
+
+```
+SEQ_1:
+   begin
+     if(inp_bit == 1)
+       next_state = SEQ_10;
+       // this statement causes bug in the code
+     else
+       next_state = IDLE;
+       // this statement causes bug in the code
+    end
+```
+
+Sequence 1011 is detected proving that **Level 1 Design 2 is bug free**
+
+![l1d2_image8](https://user-images.githubusercontent.com/99788755/182026698-6d8e7a17-a4c0-4ee2-9fd7-3765f61d81de.png)
+
+
+## Is the verification complete ?   (Level 1 Design 2)
+Yes, the bugs were detected using cocotb testbench on level1_design2 Sequence detector code. 
+The bugs were located and rectified. The same Cocotb test which detected the bugs, now with modified changes in the code, passes without committing any errors.
+Hence, the verification of Sequence Detector Level 1 Design 2 is complete.  
+
