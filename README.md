@@ -5,9 +5,10 @@ challenges-inderjit303 created by GitHub Classroom
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
-*Gitpod id in the screenshot is included*
+*Gitpod id is included in the screenshot shown below*
 
-![](https://i.imgur.com/miWGA1o.png)
+![l1d1_image1](https://user-images.githubusercontent.com/99788755/182015934-d71a6af6-e681-4be8-ba86-7d8c379be922.png)
+
 
 ## Verification Environment
 
