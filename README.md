@@ -1,11 +1,11 @@
 # challenges-inderjit303
 challenges-inderjit303 created by GitHub Classroom
 
-# Adder Design Verification
+# Level 1 Design 1 (Mux Design Verification)
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
-*Make sure to include the Gitpod id in the screenshot*
+*Gitpod id in the screenshot is included*
 
 ![](https://i.imgur.com/miWGA1o.png)
 
