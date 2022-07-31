@@ -61,6 +61,7 @@ AssertionError: Muliplexer output is incorrect: 11110 != 30
 Cocotb tests are created for testing all states of input and monitoring outputs purposes. This makes sure that all the inputs are compared with expected output and DUT output. 
 
 The following cases reveals incorrect outputs for 2 such inputs cases: 
+
 Case 1: 
 - Test inputs: Inp12 = 1 and SEL = 12
 - Expected Output: out = 12
