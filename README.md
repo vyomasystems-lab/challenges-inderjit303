@@ -156,10 +156,10 @@ In each cocotb test, the inputs are first assigned values and then are driven as
  dut.sel.value = SEL
  dut.inp0.value = Inp0
 ```
+Cocotb tests are created for random states of input and monitoring output.
 
-31 such cocotb tests are created for testing all states of input and monitoring output.
+![l1d2_image2](https://user-images.githubusercontent.com/99788755/182026315-cc3e90d8-3b41-4d84-a3c9-d01812fd9aaa.png)
 
-![l1d1_image2](https://user-images.githubusercontent.com/99788755/182016224-2026ce7f-2b9e-481f-89b3-f7a1867a0fb3.png)
 
 The assert statement is used for comparing the multiplexer's output to the expected value and the cocotb log command display's the user typed message as shown below: 
 
