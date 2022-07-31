@@ -78,15 +78,15 @@ Output mismatches for the above inputs proving that there is a **design bug in L
 
 
 ## Design Bug
-Based on the above test input and analysing the design, we see the following
+Based on the above test input and analysing the design, two bugs in the code were detected as discussed below: 
 
 ```
- always @(a or b) 
-  begin
-    sum = a - b;             ====> BUG
-  end
+5'b01101: out = inp12;     ====> BUG 1
+5'b01101: out = inp13;
+5'b01110: out = inp14;            
 ```
-For the adder design, the logic should be ``a + b`` instead of ``a - b`` as in the design code.
+
+For the mux design, the logic should be ''5'b01100: out = inp12'' instead of ''5'b01101: out = inp12'' as in the design code.
 
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
