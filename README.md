@@ -37,11 +37,27 @@ The assert statement is used for comparing the multiplexer's output to the expec
 ![l1d1_image3](https://user-images.githubusercontent.com/99788755/182016740-c253fc77-eacc-4a3e-9b22-b8d92ad93266.png)
 
 
-The following error is seen:
+The following error's are observed:
+
+**Error 1**
 ```
-assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
-                     AssertionError: Adder result is incorrect: 7 + 5 != 2, expected value=12
+test12_basic_mux failed
+Traceback (most recent call last):
+File "/workspace/challenges-inderjit303/level1_design1/test_mux.py", line 236, in test12_basic_mux
+assert dut.out.value == Inp12, f"Muliplexer output is incorrect: {dut.sel.value} != 12"
+AssertionError: Muliplexer output is incorrect: 01100 != 12
 ```
+
+```
+**Error 2**
+test30_basic_mux failed
+Traceback (most recent call last):
+File "/workspace/challenges-inderjit303/level1_design1/test_mux.py", line 560, in test30_basic_mux
+assert dut.out.value == Inp30, f"Muliplexer output is incorrect: {dut.sel.value} != 30"
+AssertionError: Muliplexer output is incorrect: 11110 != 30
+```
+
+
 ## Test Scenario **(Important)**
 - Test Inputs: a=7 b=5
 - Expected Output: sum=12
