@@ -58,7 +58,7 @@ AssertionError: Muliplexer output is incorrect: 11110 != 30
 ```
 
 ## Test Scenario **(Level 1 Design 1)**
-31 cocotb tests are created for testing all states of input and monitoring outputs. This make sure that all the inputs are compared with expected output and DUT output. 
+Cocotb tests are created for testing all states of input and monitoring outputs purposes. This makes sure that all the inputs are compared with expected output and DUT output. 
 
 The following cases reveals incorrect outputs for 2 such inputs cases: 
 Case 1: 
