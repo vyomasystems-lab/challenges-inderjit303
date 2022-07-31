@@ -57,20 +57,23 @@ assert dut.out.value == Inp30, f"Muliplexer output is incorrect: {dut.sel.value}
 AssertionError: Muliplexer output is incorrect: 11110 != 30
 ```
 
+## Test Scenario **(Level 1 Design 1)**
+31 cocotb tests are created for testing all states of input and monitoring outputs. This make sure that all the inputs are compared with expected output and DUT output. 
 
-## Test Scenario **(Important)**
-- Test Inputs: a=7 b=5
-- Expected Output: sum=12
-- Observed Output in the DUT dut.sum=2
+The following cases reveals incorrect outputs for 2 such inputs cases: 
+Case 1: 
+- Test inputs: Inp12 = 1 and SEL = 12
+- Expected Output: out = 12
+- Observed Output in the DUT dut.out.value != Inp12 != 12
 
-
-
+Case 2: 
+- Test inputs: Inp12 = 1 and SEL = 30
+- Expected Output: out = 30
+- Observed Output in the DUT dut.out.value != Inp30 != 30
 
 Output mismatches for the above inputs proving that there is a **design bug in Level 1 Design 1**
 
 ![l1d1_image4](https://user-images.githubusercontent.com/99788755/182018143-9dd1cbe3-3dd1-4b98-9517-734b1242c366.png)
-
-
 
 
 ## Design Bug
