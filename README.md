@@ -77,7 +77,7 @@ Output mismatches for the above inputs proving that there is a **design bug in L
 ![l1d1_image4](https://user-images.githubusercontent.com/99788755/182018143-9dd1cbe3-3dd1-4b98-9517-734b1242c366.png)
 
 
-## Design Bug
+## Design Bug (Level 1 Design 1)
 Based on the above test input and analysing the design, two bugs in the code were detected as discussed below: 
 
 ```
@@ -97,14 +97,14 @@ default: out = 0;          ====> BUG 2
 For the mux design, the logic should be '5'b11110: out = inp30' instead of 'default: out = 0' as in the design code.
 
 
-## Design Fix
+## Design Fix (Level 1 Design 1)
 Updating the verilog design code and re-running the test makes the test pass.
 
 ![l1d1_image6](https://user-images.githubusercontent.com/99788755/182022235-bd16f2d3-8efd-462f-9e0b-120b8c50d833.png)
 
 The updated design is updated in the folder 'fixed_level1_design1'
 
-## Verification Strategy
+## Verification Strategy (Level 1 Design 1)
 As explained in test scenarios above, bug free verilog code is updated in folder named 'fixed_level1_design1'
 The following bugs were detected and corrected.
 
@@ -122,7 +122,7 @@ Output matches for the above inputs proving that **Level 1 Design 1 is bug free*
 
 ![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
 
-## Is the verification complete ?
+## Is the verification complete ?   (Level 1 Design 1)
 Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
 The bugs were located in code and eliminated.
 Hence, the verification of Mux Level 1 Design 1 completed by Pass DUT test. 
