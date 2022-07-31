@@ -105,6 +105,20 @@ Updating the verilog design code and re-running the test makes the test pass.
 The updated design is updated in the folder 'fixed_level1_design1'
 
 ## Verification Strategy
+As explained in test scenarios above, bug free verilog code is updated in folder named 'fixed_level1_design1'
+The following bugs were detected and corrected.
+
+Case 1: 
+- Test inputs: Inp12 = 1 and SEL = 12
+- Expected Output: out = 12
+- Observed Output in the DUT dut.out.value = Inp12 = 12
+
+Case 2: 
+- Test inputs: Inp12 = 1 and SEL = 30
+- Expected Output: out = 30
+- Observed Output in the DUT dut.out.value = Inp30 = 30
+
+Output matches for the above inputs proving that **Level 1 Design 1 is bug free**
 
 ## Is the verification complete ?
 Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
