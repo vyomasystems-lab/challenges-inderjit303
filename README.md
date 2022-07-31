@@ -206,7 +206,7 @@ Case 2:
 
 Output mismatches for the above inputs proving that there is a **design bug in Level 1 Design 1**
 
-![l1d1_image4](https://user-images.githubusercontent.com/99788755/182018143-9dd1cbe3-3dd1-4b98-9517-734b1242c366.png)
+![l1d2_image5](https://user-images.githubusercontent.com/99788755/182026652-191b1c45-40bd-4cbc-8d2e-4272d4ee6758.png)
 
 
 ## Design Bug (Level 1 Design 2)
