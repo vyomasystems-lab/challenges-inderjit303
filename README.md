@@ -148,7 +148,7 @@ In cocotb testbench, the inputs are first assigned values and then are driven as
 
 ![l1d2_image3](https://user-images.githubusercontent.com/99788755/182026472-14d29353-abd1-407a-bf04-392bdb521470.png)
 
-Cocotb tests are created for the input sequence *1101111*
+Next, a 10us period clock is created on port clk and clock is started with reset. Cocotb tests are created for the input sequence *1101111*
 
 ![l1d2_image2](https://user-images.githubusercontent.com/99788755/182026315-cc3e90d8-3b41-4d84-a3c9-d01812fd9aaa.png)
 
