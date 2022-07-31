@@ -100,10 +100,12 @@ For the mux design, the logic should be '5'b11110: out = inp30' instead of 'defa
 ## Design Fix
 Updating the verilog design code and re-running the test makes the test pass.
 
-![](https://i.imgur.com/5XbL1ZH.png)
+![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
 
-The updated design is checked in as adder_fix.v
+The updated design is updated in the folder 'fixed_level1_design1'
 
 ## Verification Strategy
 
 ## Is the verification complete ?
+Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
+The bugs were located in code and eliminated and verified by Pass DUT test. 
