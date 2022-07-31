@@ -192,6 +192,9 @@ AssertionError: Muliplexer output is incorrect: 11110 != 30
 ## Test Scenario **(Level 1 Design 2)**
 Cocotb tests are created for testing all states of input and monitoring outputs purposes. This makes sure that all the inputs are compared with expected output and DUT output. 
 
+![l1d2_image6](https://user-images.githubusercontent.com/99788755/182026718-6ac98353-878a-428b-8665-33856b524d75.png)
+
+
 The following cases reveals incorrect outputs for 2 such inputs cases: 
 
 Case 1: 
@@ -232,7 +235,8 @@ For the mux design, the logic should be '5'b11110: out = inp30' instead of 'defa
 ## Design Fix (Level 1 Design 2)
 Updating the verilog design code and re-running the test makes the test pass.
 
-![l1d1_image6](https://user-images.githubusercontent.com/99788755/182022235-bd16f2d3-8efd-462f-9e0b-120b8c50d833.png)
+![l1d2_image7](https://user-images.githubusercontent.com/99788755/182026727-cd48515e-366c-4ccc-b2cb-34490df96dd9.png)
+
 
 The updated design is updated in the folder 'fixed_level1_design1'
 
@@ -252,7 +256,8 @@ Case 2:
 
 Output matches for the above inputs proving that **Level 1 Design 2 is bug free**
 
-![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
+![l1d2_image8](https://user-images.githubusercontent.com/99788755/182026698-6d8e7a17-a4c0-4ee2-9fd7-3765f61d81de.png)
+
 
 ## Is the verification complete ?   (Level 1 Design 2)
 Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
