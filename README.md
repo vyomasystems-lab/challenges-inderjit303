@@ -135,7 +135,8 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 *Gitpod id is included in the screenshot shown below*
 
-![l1d1_image1](https://user-images.githubusercontent.com/99788755/182015934-d71a6af6-e681-4be8-ba86-7d8c379be922.png)
+![l1d2_image1](https://user-images.githubusercontent.com/99788755/182026222-2b934776-da3e-4fab-a0e0-0ae27012771a.png)
+
 
 
 ## Verification Environment (Level 1 Design 2)
