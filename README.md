@@ -100,7 +100,7 @@ For the mux design, the logic should be '5'b11110: out = inp30' instead of 'defa
 ## Design Fix
 Updating the verilog design code and re-running the test makes the test pass.
 
-![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
+![l1d1_image6](https://user-images.githubusercontent.com/99788755/182022235-bd16f2d3-8efd-462f-9e0b-120b8c50d833.png)
 
 The updated design is updated in the folder 'fixed_level1_design1'
 
@@ -119,6 +119,8 @@ Case 2:
 - Observed Output in the DUT dut.out.value = Inp30 = 30
 
 Output matches for the above inputs proving that **Level 1 Design 1 is bug free**
+
+![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
 
 ## Is the verification complete ?
 Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
