@@ -108,4 +108,5 @@ The updated design is updated in the folder 'fixed_level1_design1'
 
 ## Is the verification complete ?
 Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
-The bugs were located in code and eliminated and verified by Pass DUT test. 
+The bugs were located in code and eliminated.
+Hence, the verification of Mux Level 1 Design 1 completed by Pass DUT test. 
