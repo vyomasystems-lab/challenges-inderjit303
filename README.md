@@ -14,7 +14,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 5-bit select input *sel*, 2-bits inputs *inp0* to *inp30* and it gives 1-bit output *out*.
 
-A cocotb Testbench is created for each individual inputs *inpo* to inp30*. 
+A cocotb Testbench is created for each individual inputs *inpo* to *inp30*. 
 In each cocotb test, the inputs are first assigned values and then are driven as follows:
 
 ```
