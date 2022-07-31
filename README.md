@@ -86,7 +86,7 @@ Based on the above test input and analysing the design, two bugs in the code wer
 5'b01110: out = inp14;            
 ```
 
-For the mux design, the logic should be ''5'b01100: out = inp12'' instead of ''5'b01101: out = inp12'' as in the design code.
+For the mux design, the logic should be '5'b01100: out = inp12' instead of '5'b01101: out = inp12' as in the design code.
 
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
