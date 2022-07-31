@@ -123,9 +123,9 @@ Output matches for the above inputs proving that **Level 1 Design 1 is bug free*
 ![l1d1_image5](https://user-images.githubusercontent.com/99788755/182021868-8bf24130-1865-4fdd-a2f5-2fca44ae3207.png)
 
 ## Is the verification complete ?   (Level 1 Design 1)
-Yes, the bugs were detected using cocotb testbench verification on level1_design1 MUX code. 
-The bugs were located in code and eliminated.
-Hence, the verification of Mux Level 1 Design 1 completed by Pass DUT test. 
+The bugs present in original verilog code were detected using cocotb testbench verification on level1_design1 MUX code. 
+The bugs were located in code and updated bug-free. The same Cocotb test were detected the bugs, now with modified changes in the code, passes without committing any errors.
+Hence, the verification of Mux Level 1 Design 1 is completed by Pass DUT test. 
 
 # 
 
