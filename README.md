@@ -10,7 +10,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 ![l1d1_image1](https://user-images.githubusercontent.com/99788755/182015934-d71a6af6-e681-4be8-ba86-7d8c379be922.png)
 
 
-## Verification Environment
+## Verification Environment (Level 1 Design 1)
 
 The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 5-bit select input *sel*, 2-bits inputs *inp0* to *inp30* and it gives 1-bit output *out*.
 
@@ -19,6 +19,8 @@ The values are assigned to the input port using
 dut.a.value = 7
 dut.b.value = 5
 ```
+
+![l1d1_image2](https://user-images.githubusercontent.com/99788755/182016224-2026ce7f-2b9e-481f-89b3-f7a1867a0fb3.png)
 
 The assert statement is used for comparing the adder's outut to the expected value.
 
