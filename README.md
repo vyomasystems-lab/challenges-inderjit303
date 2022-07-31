@@ -148,23 +148,12 @@ In cocotb testbench, the inputs are first assigned values and then are driven as
 
 ![l1d2_image3](https://user-images.githubusercontent.com/99788755/182026472-14d29353-abd1-407a-bf04-392bdb521470.png)
 
-
-```
- Inp0 = 1
- SEL = 0
-```
-
-```
- # input driving 
- dut.sel.value = SEL
- dut.inp0.value = Inp0
-```
-Cocotb tests are created for random states of input and monitoring output.
+Cocotb tests are created for the input sequence *1101111*
 
 ![l1d2_image2](https://user-images.githubusercontent.com/99788755/182026315-cc3e90d8-3b41-4d84-a3c9-d01812fd9aaa.png)
 
 
-The assert statement is used for comparing the multiplexer's output to the expected value and the cocotb log command display's the user typed message as shown below:
+The assert statement is used for comparing the current state value to the expected sequence 1011 and the cocotb log command display's the user typed message as shown below:
 
 ![l1d2_image4](https://user-images.githubusercontent.com/99788755/182026399-0140428f-a820-4503-8587-a7aa8324d9f4.png)
 
