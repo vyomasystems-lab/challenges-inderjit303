@@ -311,7 +311,7 @@ def run_test_3(dut):
 
 The above images shows that DUT and expected output are not matching, thus fails the test 
 
-The error message displayed in the terminal: 
+**The error message displayed in the terminal: **
 
 ```
 0.00ns INFO     running run_test_1 (1/21)
@@ -340,7 +340,7 @@ Instruction value in binary: 01000000000000000111000000110011
 Instruction value in hex: 0x40007033
      0.02ns INFO     run_test_3 failed
                      Traceback (most recent call last):
-                       File "/workspace/sample/level2_design/test_mkbitmanip.py", line 123, in run_test_3
+                       File "/workspace/challenges-inderjit303/level2_design/test_mkbitmanip.py", line 123, in run_test_3
                          assert dut_output == expected_mav_putvalue, error_message
                      AssertionError: Value mismatch DUT = 0x1 does not match MODEL = 0x15541
      0.02ns INFO     running run_test_4 (3/21)
