@@ -236,3 +236,90 @@ Yes, the bugs were detected using cocotb testbench on level1_design2 Sequence de
 The bugs were located and rectified. The same Cocotb test which detected the bugs, now with modified changes in the code, passes without committing any errors.
 Hence, the verification of Sequence Detector Level 1 Design 2 is complete.  
 
+
+# Level 2 Design (Bitmanipulation co-processor)
+
+The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
+
+
+
+## Test Scenario **(Level 1 Design 1)**
+Cocotb tests are created for testing most of the instructions states.
+
+
+## Design Bug (Level 2 Design)
+Based on the above test input and analysing the design, one bugs in the code was detected as discussed below: 
+
+```
+5'b01101: out = inp12;     ====> BUG 1
+5'b01101: out = inp13;
+5'b01110: out = inp14;            
+```
+
+For the mux design, the logic should be '5'b01100: out = inp12' instead of '5'b01101: out = inp12' as in the design code.
+
+```
+5'b11100: out = inp28;
+5'b11101: out = inp29;
+default: out = 0;          ====> BUG 2
+```
+
+
+Following is the testbench which catches the bug in Level 2 Design: 
+
+```
+
+# Test 3   
+@cocotb.test()
+def run_test_3(dut):
+
+    # clock
+    cocotb.fork(clock_gen(dut.CLK))
+
+    # reset
+    dut.RST_N.value <= 0
+    yield Timer(10) 
+    dut.RST_N.value <= 1
+
+
+    ######### CTB : Test 3 to expose the bug #############
+    # input transaction
+
+    mav_putvalue_src1 = 0b00000000000000001010101010100000
+    mav_putvalue_src2 = 0b00000000000000000000000000000011
+    mav_putvalue_src3 = 0x0
+    mav_putvalue_instr = 0b01000000000000000111000000110011
+
+    # expected output from the model
+    expected_mav_putvalue = bitmanip(mav_putvalue_instr, mav_putvalue_src1, mav_putvalue_src2, mav_putvalue_src3)
+
+    # driving the input transaction
+    dut.mav_putvalue_src1.value = mav_putvalue_src1
+    dut.mav_putvalue_src2.value = mav_putvalue_src2
+    dut.mav_putvalue_src3.value = mav_putvalue_src3
+    dut.EN_mav_putvalue.value = 1
+    dut.mav_putvalue_instr.value = mav_putvalue_instr
+  
+    yield Timer(1) 
+
+    # obtaining the output
+    dut_output = dut.mav_putvalue.value
+
+    cocotb.log.info(f'DUT OUTPUT={hex(dut_output)}')
+    cocotb.log.info(f'EXPECTED OUTPUT={hex(expected_mav_putvalue)}')
+    print(f'SRC1 value in binary: {dut.mav_putvalue_src1.value}')
+    print(f'SRC1 value in hex: {hex(dut.mav_putvalue_src1.value)}')
+    print(f'SRC2 value in binary: {dut.mav_putvalue_src2.value}')
+    print(f'SRC2 value in hex: {hex(dut.mav_putvalue_src2.value)}')
+    print(f'SRC3 value in binary: {dut.mav_putvalue_src3.value}')
+    print(f'SRC3 value in hex: {hex(dut.mav_putvalue_src3.value)}')
+    print(f'Instruction value in binary: {dut.mav_putvalue_instr.value}')
+    print(f'Instruction value in hex: {hex(dut.mav_putvalue_instr.value)}')
+    # comparison
+    error_message = f'Value mismatch DUT = {hex(dut_output)} does not match MODEL = {hex(expected_mav_putvalue)}'
+    assert dut_output == expected_mav_putvalue, error_message
+
+```
+![failtest](https://user-images.githubusercontent.com/99788755/182216610-e53cf013-3dd5-4cce-b825-290fd61b007a.png)
+
+The above images shows that DUT and expected output are not matching, thus fails the test 
