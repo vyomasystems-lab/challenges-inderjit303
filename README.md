@@ -310,3 +310,54 @@ def run_test_3(dut):
 ![failtest](https://user-images.githubusercontent.com/99788755/182216610-e53cf013-3dd5-4cce-b825-290fd61b007a.png)
 
 The above images shows that DUT and expected output are not matching, thus fails the test 
+
+The error message displayed in the terminal: 
+
+```
+0.00ns INFO     running run_test_1 (1/21)
+     0.01ns INFO     DUT OUTPUT=0x0
+     0.01ns INFO     EXPECTED OUTPUT=0x0
+SRC1 value in binary: 00000000000000000000000000000101
+SRC1 value in hex: 0x5
+SRC2 value in binary: 00000000000000000000000000000000
+SRC2 value in hex: 0x0
+SRC3 value in binary: 00000000000000000000000000000000
+SRC3 value in hex: 0x0
+Instruction value in binary: 00010000000100000001000010110011
+Instruction value in hex: 0x101010b3
+     0.01ns INFO     run_test_1 passed
+     0.01ns INFO     running run_test_3 (2/21)
+--ANDN 1
+     0.02ns INFO     DUT OUTPUT=0x1
+     0.02ns INFO     EXPECTED OUTPUT=0x15541
+SRC1 value in binary: 00000000000000001010101010100000
+SRC1 value in hex: 0xaaa0
+SRC2 value in binary: 00000000000000000000000000000011
+SRC2 value in hex: 0x3
+SRC3 value in binary: 00000000000000000000000000000000
+SRC3 value in hex: 0x0
+Instruction value in binary: 01000000000000000111000000110011
+Instruction value in hex: 0x40007033
+     0.02ns INFO     run_test_3 failed
+                     Traceback (most recent call last):
+                       File "/workspace/sample/level2_design/test_mkbitmanip.py", line 123, in run_test_3
+                         assert dut_output == expected_mav_putvalue, error_message
+                     AssertionError: Value mismatch DUT = 0x1 does not match MODEL = 0x15541
+     0.02ns INFO     running run_test_4 (3/21)
+--ANDN 1
+     0.04ns INFO     DUT OUTPUT=0x1
+     0.04ns INFO     EXPECTED OUTPUT=0x1
+SRC1 value in binary: 00000000000000000000000000000000
+SRC1 value in hex: 0x0
+SRC2 value in binary: 00000000000000000000000000000011
+SRC2 value in hex: 0x3
+SRC3 value in binary: 00000000000000000000000000000000
+SRC3 value in hex: 0x0
+Instruction value in binary: 01000000000000000111000000110011
+Instruction value in hex: 0x40007033
+     0.04ns INFO     run_test_4 passed
+
+
+
+
+```
