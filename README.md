@@ -128,6 +128,8 @@ The bugs were located in code and updated bug-free. The same Cocotb test which d
 Hence, the verification of Mux Level 1 Design 1 is complete. 
 
 # 
+#
+#
 
 # Level 1 Design 2 (Sequence Detector Verification)
 
@@ -237,32 +239,17 @@ The bugs were located and rectified. The same Cocotb test which detected the bug
 Hence, the verification of Sequence Detector Level 1 Design 2 is complete.  
 
 
+# 
+#
+#
+
 # Level 2 Design (Bitmanipulation co-processor)
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
 
-
 ## Test Scenario **(Level 1 Design 1)**
 Cocotb tests are created for testing most of the instructions states.
-
-
-## Design Bug (Level 2 Design)
-Based on the above test input and analysing the design, one bugs in the code was detected as discussed below: 
-
-```
-5'b01101: out = inp12;     ====> BUG 1
-5'b01101: out = inp13;
-5'b01110: out = inp14;            
-```
-
-For the mux design, the logic should be '5'b01100: out = inp12' instead of '5'b01101: out = inp12' as in the design code.
-
-```
-5'b11100: out = inp28;
-5'b11101: out = inp29;
-default: out = 0;          ====> BUG 2
-```
 
 
 Following is the testbench which catches the bug in Level 2 Design: 
