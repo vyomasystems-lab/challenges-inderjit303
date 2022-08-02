@@ -422,13 +422,59 @@ async def test_CLA32_randomise(dut):
   
 ```
 
-## Results 
+# Results 
 
-# cocotb tests created for 32 bit CLA failed due to error which could not be rectified within time limit. So, it was a unsuccessful attempt for Level 3 design 
+## cocotb tests created for 32 bit CLA failed due to error which could not be rectified within time limit. So, it was a unsuccessful attempt for Level 3 design 
 
-# Attahcing the error message the terminal: 
+## Attahcing the error message the terminal: 
 
+```
+0.00ns INFO     Found test test_CLA32.test_CLA32_Basic
+     0.00ns INFO     Found test test_CLA32.test_CLA32_randomise
+     0.00ns INFO     running test_CLA32_Basic (1/2)
+     0.00ns INFO     A|B||cout|sum
+     2.00ns INFO     test_CLA32_Basic failed
+                     Traceback (most recent call last):
+                       File "/workspace/challenges-inderjit303/level3_design/test_CLA32.py", line 20, in test_CLA32_Basic
+                         assert dut.sum.value == A + B, "Adder result is incorrect: {A} + {B} != {SUM}".format(
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 501, in __eq__
+                         return self.value == other
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 345, in value
+                         return self.integer
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 336, in integer
+                         return self._convert_from(self._str)
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 231, in _convert_from_unsigned
+                         return int(x.translate(_resolve_table), 2)
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 77, in __missing__
+                         return self.resolve_x(key)
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 59, in resolve_error
+                         raise ValueError("Unresolvable bit in binary string: '{}'".format(chr(key)))
+                     ValueError: Unresolvable bit in binary string: 'x'
+     2.00ns INFO     running test_CLA32_randomise (2/2)
+     4.00ns INFO     test_CLA32_randomise failed
+                     Traceback (most recent call last):
+                       File "/workspace/challenges-inderjit303/level3_design/test_CLA32.py", line 40, in test_CLA32_randomise
+                         dut._log.info(f'A={A:05} B={B:05} model={A+B:05} DUT={int(dut.sum.value):05}')
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 509, in __int__
+                         return self.integer
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 336, in integer
+                         return self._convert_from(self._str)
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 231, in _convert_from_unsigned
+                         return int(x.translate(_resolve_table), 2)
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 77, in __missing__
+                         return self.resolve_x(key)
+                       File "/workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb/binary.py", line 59, in resolve_error
+                         raise ValueError("Unresolvable bit in binary string: '{}'".format(chr(key)))
+                     ValueError: Unresolvable bit in binary string: 'x'
+     4.00ns INFO     *****************************************************************************************
+                     ** TEST                             STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     *****************************************************************************************
+                     ** test_CLA32.test_CLA32_Basic       FAIL           2.00           0.01        267.77  **
+                     ** test_CLA32.test_CLA32_randomise   FAIL           2.00           0.00       1113.10  **
+                     *****************************************************************************************
+                     ** TESTS=2 PASS=0 FAIL=2 SKIP=0                     4.00           0.02        234.98  **
+                     ****************************************************************************************
 
-
+```
 
 
