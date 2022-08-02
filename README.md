@@ -420,6 +420,15 @@ async def test_CLA32_randomise(dut):
         A=dut.a.value, B=dut.b.value, SUM=dut.sum.value)
         
   
-
-
 ```
+
+## Results 
+
+# cocotb tests created for 32 bit CLA failed due to error which could not be rectified within time limit. So, it was a unsuccessful attempt for Level 3 design 
+
+# Attahcing the error message the terminal: 
+
+
+
+
+
